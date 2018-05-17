@@ -1,0 +1,46 @@
+{
+  "name": "sylvanasclub",
+  "version": "0.0.1",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev-view": "webpack -w",
+    "dev-server": "gulp dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ganother/sylvanasClub.git"
+  },
+  "author": "Ganother",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ganother/sylvanasClub/issues"
+  },
+  "homepage": "https://github.com/Ganother/sylvanasClub#readme",
+  "devDependencies": {
+    "@types/body-parser": "^1.17.0",
+    "@types/express": "^4.11.1",
+    "@types/node": "^9.6.6",
+    "@types/react-router": "^3.0.15",
+    "awesome-typescript-loader": "^5.0.0-1",
+    "body-parser": "^1.18.2",
+    "child_process": "^1.0.2",
+    "ejs": "^2.5.9",
+    "gulp": "^3.9.1",
+    "gulp-typescript": "^4.0.2",
+    "gulp-webpack": "^1.5.0",
+    "source-map-loader": "^0.2.3",
+    "typescript": "^2.8.3",
+    "vinyl-named": "^1.1.0",
+    "webpack": "^4.8.1",
+    "webpack-stream": "^4.0.3"
+  },
+  "dependencies": {
+    "@types/react": "^16.3.12",
+    "@types/react-dom": "^16.0.5",
+    "express": "^4.16.3",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "react-router": "^4.2.0"
+  }
+}

@@ -1,0 +1,54 @@
+@import "./_reset.scss";
+@import "./_function.scss";
+body{
+  font-family: Helvetica, Tahoma, Arial, "PingFang SC", STXihei, "Microsoft yahei", "WenQuanYi Micro Hei", sans-serif
+}
+.header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  .logo-bar{
+    box-shadow: 0 1px 5px 0 #aaa;
+  }
+  .name{
+    display: inline-block;
+    vertical-align: -72px;
+    line-height: 30px;
+    font-size: 16px;
+  }
+  .logo{
+    width: 255px;
+    height: 102px;
+    display: inline-block;
+    vertical-align: top;
+  }
+}    
+.header-nav{
+  text-align: center;
+  padding: 20px 0;
+  .item{
+    font-size: 14px;
+    position: relative;
+    padding: 0 20px;
+    display: inline-block;
+    &:after{
+      position: absolute;
+      content: '|';
+      top: 0;
+      right: 0;
+      color: #999;
+    }
+    &:last-child{
+      &:after{
+        display: none;
+      }
+    }
+  }
+  .link{
+    color: #999;
+    &:hover{
+      color: #eba929
+    }
+  }
+} 
