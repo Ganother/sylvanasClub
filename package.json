@@ -36,11 +36,19 @@
     "webpack-stream": "^4.0.3"
   },
   "dependencies": {
+    "@types/mongodb": "^3.0.18",
+    "@types/mongoose": "^5.0.14",
     "@types/react": "^16.3.12",
     "@types/react-dom": "^16.0.5",
+    "@types/react-router-dom": "^4.2.6",
+    "@types/request": "^2.47.0",
     "express": "^4.16.3",
+    "mongodb": "^3.1.0-beta4",
+    "mongoose": "^5.1.2",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
-    "react-router": "^4.2.0"
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "request": "^2.87.0"
   }
 }

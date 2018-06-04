@@ -2,7 +2,7 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import path from 'path'
 import Index from './routes/index'
-
+import router from './router'
 // const app: express.Application = express()
 
 class Server {
@@ -13,9 +13,6 @@ class Server {
   }
 
   private routes() {
-    let router: express.Router = express.Router()
-    let index: Index = new Index()
-    router.get('/', index.index)
     this.app.use(router)
   }
 

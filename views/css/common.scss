@@ -4,10 +4,6 @@ body{
   font-family: Helvetica, Tahoma, Arial, "PingFang SC", STXihei, "Microsoft yahei", "WenQuanYi Micro Hei", sans-serif
 }
 .header{
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
   .logo-bar{
     box-shadow: 0 1px 5px 0 #aaa;
   }
@@ -52,3 +48,41 @@ body{
     }
   }
 } 
+.wrapper{
+  width: 1000px;
+  margin: 0 auto;
+}
+.home-list{
+  .item{
+    box-shadow: 0 0 5px 5px #eee;
+    height: 300px;
+    padding: 20px;
+    margin-bottom: 20px; 
+  }
+  .img-box{
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+  }
+  .img{
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+  }
+  .title{
+    font-size: 20px;
+    margin-top: 10px;
+  }
+  .time{
+    font-size: 12px;
+    line-height: 1;
+  }
+  .desc{
+    margin-top: 10px;
+  }
+  .link{
+    color: #333;
+  }
+}
