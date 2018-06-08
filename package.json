@@ -19,12 +19,13 @@
   "homepage": "https://github.com/Ganother/sylvanasClub#readme",
   "devDependencies": {
     "@types/body-parser": "^1.17.0",
+    "@types/classnames": "^2.2.4",
     "@types/express": "^4.11.1",
     "@types/node": "^9.6.6",
-    "@types/react-router": "^3.0.15",
     "awesome-typescript-loader": "^5.0.0-1",
     "body-parser": "^1.18.2",
     "child_process": "^1.0.2",
+    "classnames": "^2.2.5",
     "ejs": "^2.5.9",
     "gulp": "^3.9.1",
     "gulp-typescript": "^4.0.2",
@@ -36,18 +37,19 @@
     "webpack-stream": "^4.0.3"
   },
   "dependencies": {
+    "@types/axios": "^0.14.0",
     "@types/mongodb": "^3.0.18",
     "@types/mongoose": "^5.0.14",
     "@types/react": "^16.3.12",
     "@types/react-dom": "^16.0.5",
     "@types/react-router-dom": "^4.2.6",
     "@types/request": "^2.47.0",
+    "axios": "^0.18.0",
     "express": "^4.16.3",
     "mongodb": "^3.1.0-beta4",
     "mongoose": "^5.1.2",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
-    "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
     "request": "^2.87.0"
   }

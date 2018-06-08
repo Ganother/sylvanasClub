@@ -53,15 +53,9 @@ body{
   margin: 0 auto;
 }
 .home-list{
-  .item{
-    box-shadow: 0 0 5px 5px #eee;
-    height: 300px;
-    padding: 20px;
-    margin-bottom: 20px; 
-  }
   .img-box{
     position: relative;
-    height: 200px;
+    height: 120px;
     overflow: hidden;
   }
   .img{
@@ -85,4 +79,16 @@ body{
   .link{
     color: #333;
   }
+}
+.flow-wrap{
+  margin-right: 60px;
+  position: relative;
+}
+.flow-item{
+  position: absolute;
+  transition: all .5s ease-in-out;
+  width: 25%;
+  padding: 20px;
+  box-sizing: border-box;
+  box-shadow: 0 0 5px 1px #eee;
 }
