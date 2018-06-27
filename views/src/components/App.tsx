@@ -5,6 +5,7 @@ import { Home } from './Home'
 import { FrontEnd } from './FrontEnd'
 import { Life } from './Life'
 import { About } from './About'
+import { Detail } from './Detail'
 export class App extends React.Component {
   render() {
     return (
@@ -16,6 +17,7 @@ export class App extends React.Component {
             <Route path="/blog" render={() => <FrontEnd />} />
             <Route path="/magic" render={() => <Life />} />
             <Route path="/evil" render={() => <About />} />
+            <Route path="/detail/:id" component={Detail} />
           </Switch>
         </div>
       </>

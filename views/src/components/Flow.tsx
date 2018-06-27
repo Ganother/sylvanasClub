@@ -1,10 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Article } from './interface'
-import axios from 'axios'
 import eventEmitter from '../models/event'
 import { getMinIndex } from '../models/util'
-import classnames from 'classnames'
 
 interface FlowProps {
   children: React.ReactNode
@@ -14,13 +11,9 @@ interface ItemProps {
   children: React.ReactNode
   index: number
 }
-// 每一列
-interface Row {
-  height: number
-}
 
-const rowPadding = 20 // 列间距
 const colPadding = 20 // 行间距
+let flowId = 0
 
 export class FlowItem extends React.Component<ItemProps, any>{
   state: any
@@ -30,13 +23,15 @@ export class FlowItem extends React.Component<ItemProps, any>{
     this.state = { style: { top: '100%', left: '50%', transform: 'translateX(-50%)', opacity: 0 } }
     eventEmitter.on('flow-item-update' + this.props.index, updatePosition)
     let self = this
-    function updatePosition(index, position) {
-      console.log(index, position)
+    function updatePosition(index:number, position:any) {
       if (index == self.props.index) {
         self.setState({'style': position})
         eventEmitter.remove('flow-item-update' + self.props.index, updatePosition)
       }
     }
+  }
+  componentWillUpdate() {
+   
   }
   componentDidMount() {
     let self = this
@@ -45,7 +40,7 @@ export class FlowItem extends React.Component<ItemProps, any>{
     if (img && img.length) {
       let image = new Image()
       image.onload = function () {
-        eventEmitter.emit('flow-item-height', [divDom.offsetHeight, self.props.index])
+        eventEmitter.emit('flow-item-height' + flowId, [divDom.offsetHeight, self.props.index])
       }
       image.src = img[0].src
     }
@@ -58,20 +53,20 @@ export class FlowItem extends React.Component<ItemProps, any>{
     )
   }
 }
+
 export class Flow extends React.Component<FlowProps, any> {
   state: any
   constructor(props: FlowProps) {
     super(props)
-    this.state = { list: [], rows: [], mainWidth: 0, itemWidth: 0 }
-    let i = 0
-    while (i < props.rows) {
-      this.state.rows.push(0)
-      i++;
-    }
+    this.state = { list: [], rows: [], mainWidth: 0, itemWidth: 0, style: {'height': 0} }
+    this.initRows()
     let self = this
-    eventEmitter.on('flow-item-height', (height, index) => {
-      console.log(height, index)
-      let { rows, mainWidth } = self.state
+    flowId ++;
+    if (eventEmitter.has('flow-item-height' + (flowId - 1))){
+      eventEmitter.remove('flow-item-height' + (flowId - 1))
+    }
+    eventEmitter.on('flow-item-height' + flowId, (height, index) => {
+      let {rows, mainWidth } = self.state
       let rowIndex = getMinIndex(rows)
       eventEmitter.emit('flow-item-update' + index, [index, {
         top: rows[rowIndex],
@@ -80,10 +75,13 @@ export class Flow extends React.Component<FlowProps, any> {
         opacity: 1
       }])
       rows[rowIndex] += (height + colPadding)
+      this.setState({style: {'height': Math.max.apply(null, rows) + 'px'}})
     })
   }
   componentDidMount() {
     this.getMainWidth()
+  }
+  componentWillUpdate() {
   }
   componentDidUpdate() {
     this.getMainWidth()
@@ -92,10 +90,18 @@ export class Flow extends React.Component<FlowProps, any> {
     let ul: any = ReactDOM.findDOMNode(this)
     this.state.mainWidth = ul.offsetWidth
   }
+  initRows(){
+    this.state.rows = []
+    let i = 0
+    while (i < this.props.rows) {
+      this.state.rows.push(0)
+      i++;
+    }
+  }
   render() {
-    let { children, rows } = this.props
+    let { children } = this.props
     return (
-      <div className="flow-wrap">
+      <div className="flow-wrap" style={this.state.style}>
         {children}
       </div>
     )

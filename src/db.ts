@@ -1,10 +1,7 @@
-import { MongoClient } from 'mongodb'
 import mongoose from 'mongoose'
 import assert from 'assert'
-import { resolve } from 'url';
 
 const url: string = 'mongodb://localhost:27017/blog'
-const dbName: string = 'blog'
 
 interface article {
   title: String,

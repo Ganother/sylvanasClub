@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-sale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>关于这个人</title>
+  <link rel="stylesheet" href="./css/aboutme.css">
+  <link rel="stylesheet" href="https://at.alicdn.com/t/font_717225_0fv3iqbfuj69.css">
+  <style>
+  </style>
+</head>
+
+<body>
+  <css-doodle>
+    :doodle { 
+      @grid: 10 / 100vmax;
+      background: #0a0c27; 
+    } 
+    margin: 10%; 
+    clip-path: polygon( @rand(100%) 0, 100% @rand(100%), 0 @rand(100%) ); 
+    background: hsla( calc(360 - @index() * 4), 70%, 68%, @rand(.8) ); 
+    --d: @rand(20s,40s); 
+    --rf: @rand(360deg);
+    --rt: calc(var(--rf) + @pick(1turn, -1turn)); 
+    --trx: calc(@rand(0%, 50%) * (5 - @col())); 
+    --try: calc(@rand(0%, 50%)* (5 - @row())); 
+    --trs: @rand(0.3, 1); 
+    animation: spin var(--d) linear infinite; 
+    transform-origin: 50% 50%; 
+    :hover {
+      animation-play-state: paused; 
+    } 
+    @keyframes spin { 
+      from { transform: rotate(var(--rf)) scale(var(--trs)) translate(var(--trx), var(--try))} 
+      to { transform: rotate(var(--rt)) scale(var(--trs)) translate(var(--trx), var(--try))} 
+    }
+  </css-doodle>
+  <div class="back back-1" id="back"></div>
+  <div class="main">
+    <!-- 入口 -->
+    <div class="page" id="page1">
+      <h4 class="title">
+        <span class="text">他的黑白王国</span>
+        <span class="iconfont icon-arrow"></span>
+        <span class="iconfont icon-arrow arrow1 page-change" data-to="2"></span>
+      </h4>
+    </div>
+    <!-- 基本资料惹 -->
+    <div class="page" id="page2">
+      <h4 class="title">
+        Introduction
+      </h4>
+      <div class="desc">
+        <p class="name">Ganother 王聪 ♂</p>
+        <p class="birth">1993/06/07 Gemini</p>
+        <p class="university">华中科技大学（本科）</p>
+        <p class="hobbies">舞蹈热爱者，部分心理学，动漫</p>
+        <p class="hobbies">《夏目友人帐》《东京喰种》</p>
+        <p class="contact">
+          <span class="text">联系我吗？</span>
+          <span class="iconfont icon-weixin page-change" data-to="3"></span>
+          <a href="https://weibo.com/p/1005053068517177/home" class="iconfont icon-weibo"></a>
+          <a href="https://github.com/Ganother" class="iconfont icon-github"></a>
+          <span class="text contact-me"><span class="no">不</span><a href="mailto:wangcong_1993@foxmail.com" class="link">联系</a></span>
+        </p>
+      </div>
+      <span class="iconfont icon-arrow"></span>
+      <span class="iconfont icon-arrow arrow1 page-change" data-to="4"></span>
+      <span class="iconfont icon-return"></span>
+      <span class="iconfont icon-return arrow1 page-change" data-to="1"></span>
+    </div>
+    <!-- wechat名片 -->
+    <div class="page" id="page3">
+      <img src="./images/wechat.jpg" alt="wechat" class="img">
+      <span class="iconfont icon-return"></span>
+      <span class="iconfont icon-return arrow1 page-change" data-to="2"></span>
+    </div>
+    <!-- 技术栈 -->
+    <div class="page" id="page4">
+      <p class="title">web前端工程师 Web Developer</p>
+      <p class="skill">HTML, </p>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/css-doodle/0.3.0/css-doodle.min.js"></script>
+  <script>
+    const background = document.getElementById('back')
+    const pages = {
+      ids: {},
+      currentId: '',
+      show: function (id) {
+        var toShow
+        if (this.ids[id]) {
+          toShow = this.ids[id]
+        } else {
+          toShow = this.ids[id] = document.getElementById(id)
+        }
+        this.ids[this.currentId] && (this.ids[this.currentId].style.display = 'none')
+        this.currentId = id
+        toShow.style.display = 'block'
+        background.className = 'back back-' + id.split('')[4]
+      },
+      hide: function (id) {
+        var toHide
+        if (this.ids[id]) {
+          toHide = this.ids[id]
+        } else {
+          toHide = this.ids[id] = document.getElementById(id)
+        }
+        toHide.style.display = 'none'
+      }
+    }
+    pages.show('page1')
+    let pageBtn = document.getElementsByClassName('page-change')
+    for(let i = 0; i < pageBtn.length; i++){
+      let btn = pageBtn[i]
+      btn.addEventListener('click', function(){
+        var to = this.getAttribute('data-to')
+        pages.show('page' + to)
+      })
+    }
+  </script>
+</body>
+
+</html>

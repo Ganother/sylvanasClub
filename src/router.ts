@@ -3,16 +3,15 @@ import request from 'request'
 import express from 'express'
 
 const router: express.Router = express.Router()
-router.get('/', (req, res, next) => {
-  // res.render('index.html')
-  res.send('hahaha')
+router.get('/aboutme', (req, res, next) => {
+  res.send('aboutme.html')
 })
 
 router.get('/get_article_by_id', (req, res, next) => {
   db.find({ "_id": req.query.id }).then(result => {
     res.json({
       errcode: 0,
-      data: result[0].body
+      data: result[0]
     })
   }).catch(err => {
     res.json({
@@ -71,7 +70,7 @@ router.get('/get_git_articles', (req, res, next) => {
             author: "Ganother",
             gitUrl: gitA.url, //文章的git接口地址
             status: 1,
-            imgUrl: '/images/article_0.jpg',
+            imgUrl: '/images/article_' + gitA.id + '.jpg',
             articleId: gitA.id,
             headUrl: '/images/head.jpg',
             body: gitA.body,

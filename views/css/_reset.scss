@@ -10,9 +10,6 @@ th, td { /* table elements 表格元素 */
   padding: 0;
 
 }
-pre{
-  white-space:inherit;
-}
 ul, menu, dir, li{
   list-style: none;
 }
@@ -20,7 +17,7 @@ ul, menu, dir, li{
 body{
   position: relative;
   margin: 0 auto;
-  font: 12px/1.5 Helvetica, Arial, sans-serif; /* �? ascii 字符表示，使得在任何编码下都无问�? */
+  font: 14px/1.8 Helvetica, Arial, sans-serif; /* �? ascii 字符表示，使得在任何编码下都无问�? */
 }
 
 a{
@@ -32,10 +29,10 @@ a, img, div, span, nav, li{
 
 /* 重置表单元素 */
 legend { color: #000; } /* for ie6 */
-fieldset, img { border: none; } /* img 搭车：让链接里的 img 无边�? */
+fieldset, img { border: none; } /* img 搭车：让链接里的 img 无边�? */
 /* 注：optgroup 无法扶正 */
 button, input, select, textarea {
-  font-size: 100%; /* 使得表单元素�? ie 下能继承字体大小 */
+  font-size: 100%; /* 使得表单元素�? ie 下能继承字体大小 */
 }
 
 input,button,select,textarea{outline:none; border:none;}

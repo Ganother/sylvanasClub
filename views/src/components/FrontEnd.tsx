@@ -22,7 +22,7 @@ export class FrontEnd extends React.Component {
             list.map((item: Article, index: number) => {
               return (
                 <FlowItem index={index}>
-                  <Link to="/" className="link">
+                  <Link to={`/detail/${item._id}`} className="link">
                     <div className="img-box">
                       <img src="//c1.staticflickr.com/5/4644/39335266522_cda56bc32d_k.jpg" alt="" className="img" />
                     </div>

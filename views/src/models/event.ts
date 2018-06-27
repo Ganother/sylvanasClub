@@ -1,4 +1,12 @@
-const eventEmitter = {
+interface emitter{
+  list: object,
+  on: (key: string, fn: any) => any,
+  emit: (type: string, rests: any) => any,
+  remove: (key: string, fn?: any) => any,
+  has: (key: string) => boolean
+}
+
+const eventEmitter:emitter = {
   list: {},
   on(key, fn) {
     console.log(key)
@@ -8,7 +16,6 @@ const eventEmitter = {
     this.list[key].push(fn);
   },
   emit(type:string, ...rests) {
-    console.log(2333)
     let key = type,
       fns = this.list[key];
 
@@ -19,7 +26,7 @@ const eventEmitter = {
       fn.apply(this, ...rests);
     });
   },
-  remove(key, fn) {
+  remove(key, fn?) {
     // 这回我们加入了取消订阅的方法
     let fns = this.list[key];
     // 如果缓存列表中没有函数，返回false
@@ -37,6 +44,9 @@ const eventEmitter = {
         }
       });
     }
+  },
+  has(key) {
+    return this.list[key]
   }
 }
 

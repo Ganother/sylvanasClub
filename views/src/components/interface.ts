@@ -7,5 +7,6 @@ export interface Article {
   headUrl: string,
   articleId: number,
   body: string,
-  updated_at: string
+  updated_at: string,
+  _id: string
 }
