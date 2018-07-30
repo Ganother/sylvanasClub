@@ -20,7 +20,7 @@ export class FlowItem extends React.Component<ItemProps, any>{
   updatePosition: any
   constructor(props: ItemProps) {
     super(props)
-    this.state = { style: { top: '100%', left: '50%', transform: 'translateX(-50%)', opacity: 0 } }
+    this.state = { style: { top: '0', left: '50%', transform: 'translateX(-50%)', opacity: 0 } }
     eventEmitter.on('flow-item-update' + this.props.index, updatePosition)
     let self = this
     function updatePosition(index:number, position:any) {
@@ -74,7 +74,7 @@ export class Flow extends React.Component<FlowProps, any> {
         transfrom: 'translateX(0)',
         opacity: 1
       }])
-      rows[rowIndex] += (height + colPadding)
+      rows[rowIndex] += (height + 20)
       this.setState({style: {'height': Math.max.apply(null, rows) + 'px'}})
     })
   }
