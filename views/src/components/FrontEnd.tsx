@@ -46,6 +46,7 @@ export class FrontEnd extends React.Component {
               )
             })
           }
+          {list.length === 0 && <div className="list-loading"><img className="loading-inner" src="/images/loading.gif" alt=""/></div>}
         </Flow>
       </div>
     )

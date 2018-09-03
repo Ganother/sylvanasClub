@@ -20,13 +20,11 @@ body {
 .header{
   background: url(../images/header_back.jpg) center center no-repeat;
   height: 420px;
-  animation: back 2.5s ease-in-out;
   position: relative;
   .logo-bar{
     padding-top: 80px;
     position: relative;
     z-index: 2;
-    animation: logo 2.5s linear;
   }
   .name{
     margin-top: 20px;
@@ -42,7 +40,6 @@ body {
   .overlay{
     position: absolute;
     z-index: 1;
-    animation: overlay 2.5s linear;
     top: 0;
     left: 0;
     right: 0;
@@ -99,7 +96,7 @@ body {
   padding: 20px 0;
   position: relative;
   z-index: 2;
-  animation: nav 2.5s linear;
+
   .item{
     font-size: 14px;
     position: relative;
@@ -125,6 +122,18 @@ body {
     }
   }
 } 
+.header-animation{
+  animation: back 2.5s ease-in-out;
+  .header-nav{
+    animation: nav 2.5s linear;
+  }
+  .logo-bar{
+    animation: logo 2.5s linear;
+  }
+  .overlay{
+    animation: overlay 2.5s linear;
+  }
+}
 .wrapper{
   width: 1000px;
   margin: 0 auto;
@@ -231,5 +240,37 @@ body {
     text-align: center;
     color: cadetblue;
     margin-top: 50px;
+  }
+}
+
+
+.loading{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #fff;
+  z-index: 9999;
+  .loading-inner{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+  }
+}
+
+.list-loading{
+  position: relative;
+  height: 200px;
+  .loading-inner{
+    display: block;
+    width: 100px;
+    height: 100px;
+    margin: auto;
   }
 }
