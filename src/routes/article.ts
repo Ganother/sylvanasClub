@@ -3,7 +3,7 @@ import request from 'request'
 import express, { Request, Response } from 'express'
 
 export function getArticleById(req: Request, res: Response): any {
-  db.find({ "_id": req.query.id }).then(result => {
+  db.find({ "_id": req.query.id }).then((result:any) => {
     res.json({
       errcode: 0,
       data: result[0]
@@ -19,10 +19,11 @@ export function getArticleById(req: Request, res: Response): any {
 export function getGitArticles(req: Request, res: Response): any {
   let text: string = ''
   request.get({
-    url: "https://api.github.com/repos/Ganother/blog/issues",
+    url: "https://api.github.com/repos/Ganother/blog/issues?client_id=c0457603d2aae82e8618&client_secret=375f9eb062d1699982c5a1ab097115b6d0c91f78",
     encoding: 'utf8',
     headers: { 'User-Agent': 'request' },
   }, (error, response, body) => {
+    console.log(response)
     if (req.query.sylvanas !== 'ganother') {
       res.send('你触犯了未知领域')
     }

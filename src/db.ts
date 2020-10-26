@@ -1,7 +1,7 @@
 import mongoose from 'mongoose'
 import assert from 'assert'
 
-const url: string = 'mongodb://localhost:27017/blog'
+const url: string = 'mongodb://root:root@localhost:27017/blog'
 
 interface article {
   title: String,
@@ -32,7 +32,7 @@ class DB {
   private db
   private model
   constructor() {
-    mongoose.connect(url)
+    mongoose.connect(url, { useNewUrlParser: true })
   }
   public insertArticle(article: article) {
     const _article = new model(article)

@@ -22,7 +22,7 @@ class Server {
     this.app.use(express.static('./views'));
     this.routes()
 
-    this.app.listen(process.env.PORT || 8080)
+    this.app.listen(process.env.PORT || 2333)
   }
 }
 
