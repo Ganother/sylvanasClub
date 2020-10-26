@@ -22,7 +22,7 @@ export class Home extends React.Component {
     })
   }
   render() {
-    let list = this.state.list
+    let list: Article[] = this.state.list
     return (
       <div className="home-list">
         <Flow rows={3} >
